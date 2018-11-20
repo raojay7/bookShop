@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * Created by 隽 on 2016/11/20.
  */
+//chenyonzghe
+
 public class IndexAction extends ActionSupport {
 
     //得到一级分类的数据
