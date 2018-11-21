@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 使用这个工具，需要传入总记录数和传入的list（list在dao中拿到）
- * Created by 隽 on 2016/12/4.
+ * Created by 隽 on 2018/12/4.
  */
 public class PageBeanHelper<T>{
     // 每页显示的数据集合:

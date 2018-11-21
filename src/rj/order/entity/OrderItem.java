@@ -5,7 +5,7 @@ import rj.product.entity.Product;
 /**
  * 订单项实体
  * 可以参与业务逻辑
- * Created by 隽 on 2016/11/25.
+ * Created by 隽 on 2018/11/25.
  */
 public class OrderItem {
     private Integer itemid;

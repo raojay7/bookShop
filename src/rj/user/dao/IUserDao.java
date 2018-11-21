@@ -5,7 +5,7 @@ import rj.user.entity.User;
 import java.util.List;
 
 /**
- * Created by 隽 on 2016/11/20.
+ * Created by 隽 on 2018/11/20.
  */
 public interface IUserDao {
     User findByUsername(String username);

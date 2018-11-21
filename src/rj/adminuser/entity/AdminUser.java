@@ -1,7 +1,7 @@
 package rj.adminuser.entity;
 
 /**
- * Created by 隽 on 2016/11/26.
+ * Created by 隽 on 2018/11/26.
  */
 public class AdminUser {
     private Integer uid;

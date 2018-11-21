@@ -8,7 +8,7 @@ import rj.utils.PageHibernateCallback;
 import java.util.List;
 
 /**
- * Created by 隽 on 2016/11/25.
+ * Created by 隽 on 2018/11/25.
  */
 public class OrderDao extends HibernateDaoSupport{
 

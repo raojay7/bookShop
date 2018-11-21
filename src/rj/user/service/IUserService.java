@@ -4,7 +4,7 @@ import rj.user.entity.User;
 import rj.utils.PageBean;
 
 /**
- * Created by 隽 on 2016/11/20.
+ * Created by 隽 on 2018/11/20.
  */
 public interface IUserService {
     User findByUsername(String username);

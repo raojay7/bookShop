@@ -5,7 +5,7 @@ import rj.adminuser.dao.AdminUserDao;
 import rj.adminuser.entity.AdminUser;
 
 /**
- * Created by 隽 on 2016/11/26.
+ * Created by 隽 on 2018/11/26.
  */
 @Transactional
 public class AdminUserService {

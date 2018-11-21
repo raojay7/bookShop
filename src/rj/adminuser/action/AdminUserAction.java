@@ -7,7 +7,7 @@ import rj.adminuser.entity.AdminUser;
 import rj.adminuser.service.AdminUserService;
 
 /**
- * Created by 隽 on 2016/11/26.
+ * Created by 隽 on 2018/11/26.
  */
 public class AdminUserAction extends ActionSupport implements ModelDriven<AdminUser>{
 

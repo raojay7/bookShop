@@ -15,7 +15,7 @@ import static org.apache.struts2.ServletActionContext.getServletContext;
  *
  *
  * 后期可能会增加文件命名，以方便管理
- * Created by 隽 on 2016/12/4.
+ * Created by 隽 on 2018/12/4.
  */
 public class FileUploadHelper{
     //struts文件上传时需要的参数,而且一定要给set方法

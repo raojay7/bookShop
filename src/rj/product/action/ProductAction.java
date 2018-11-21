@@ -9,7 +9,7 @@ import rj.product.service.ProductService;
 import rj.utils.PageBean;
 
 /**
- * Created by 隽 on 2016/11/22.
+ * Created by 隽 on 2018/11/22.
  */
 public class ProductAction extends ActionSupport implements ModelDriven<Product>{
     private ProductService productService;

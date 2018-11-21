@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 分页的工具类
  * 封装了一些需要的数据
- * Created by 隽 on 2016/11/23.
+ * Created by 隽 on 2018/11/23.
  */
 public class PageBean <T>{
     //当前页

@@ -11,7 +11,7 @@ import rj.utils.PageHibernateCallback;
 import java.util.List;
 
 /**
- * Created by 隽 on 2016/11/22.
+ * Created by 隽 on 2018/11/22.
  */
 public class ProductDao extends HibernateDaoSupport{
     private SessionFactory sessionFactory;

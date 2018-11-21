@@ -9,7 +9,7 @@ import rj.utils.PageBeanHelper;
 import java.util.List;
 
 /**
- * Created by 隽 on 2016/11/22.
+ * Created by 隽 on 2018/11/22.
  */
 //session管理
     @Transactional

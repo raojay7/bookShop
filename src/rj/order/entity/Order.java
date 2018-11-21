@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * 订单实体
- * Created by 隽 on 2016/11/25.
+ * Created by 隽 on 2018/11/25.
  */
 public class Order {
     private Integer oid;
