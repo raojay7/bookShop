@@ -8,7 +8,9 @@
 ------
 输入localhost:8080/manager/adminUser_login
 
-
+开发工具版本说明
+jdk1.7以下
+tomcat8以下
 
 
 
