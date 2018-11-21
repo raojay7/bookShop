@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>传智商城</title>
+<title>书店-商城</title>
 <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" type="text/css"/>
@@ -17,7 +17,7 @@
 	<div class="span5">
 		<div class="logo">
 			<a href="./网上商城/index.htm">
-				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="传智播客"/>
+				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="jay"/>
 			</a>
 		</div>
 	</div>

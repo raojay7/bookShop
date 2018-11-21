@@ -109,4 +109,18 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order>{
         orderService.update(order);
         return "updateStateSuccess";
     }
+
+    // 为订单付款（简单实现）:
+    public String payOrder() {
+
+        // 修改订单的状态:
+        Order currOrder = orderService.findByOid((order.getOid()));
+        // 修改订单状态为2:已经付款:
+        currOrder.setState(2);
+        orderService.update(currOrder);
+        this.addActionMessage("支付成功!订单编号为: "+order.getOid() +" 付款金额为: "+currOrder.getTotal());
+        return "msg";
+    }
+
+
 }
