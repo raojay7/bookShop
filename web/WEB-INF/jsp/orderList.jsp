@@ -83,7 +83,7 @@
 						<s:iterator var="orderItem" value="#order.orderItems">
 							<tr>
 								<td width="60"><img
-									src="${ pageContext.request.contextPath }/<s:property value="#orderItem.product.image"/>" />
+									src="<s:property value="#orderItem.product.image"/>" />
 								</td>
 								<td><s:property value="#orderItem.product.pname" /></td>
 								<td><s:property value="#orderItem.product.shop_price" /></td>

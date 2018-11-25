@@ -48,7 +48,7 @@
 						<s:iterator var="cartItem" value="#session.cart.cartItems">
 						<tr>
 							<td width="60">
-								<img src="${pageContext.request.contextPath}/<s:property value="#cartItem.product.image"/>">
+								<img src="<s:property value="#cartItem.product.image"/>">
 							</td>
 							<td>
 								<a target="_blank"><s:property value="#cartItem.product.pname"/></a>

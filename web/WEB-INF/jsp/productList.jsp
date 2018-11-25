@@ -57,7 +57,7 @@
 							<s:iterator var="p" value="pageBean.list">
 								<li>
 										<a href="${ pageContext.request.contextPath }/product_findByPid?pid=<s:property value="#p.pid"/>">
-											<img src="${pageContext.request.contextPath}/<s:property value="#p.image"/>" width="170" height="170"  style="display: inline-block;">
+											<img src="<s:property value="#p.image"/>" width="170" height="170"  style="display: inline-block;">
 											   
 											<span style='color:green'>
 											 <s:property value="#p.pname"/>
@@ -79,21 +79,27 @@
 
 		<s:if test="cid!= null"><!--测试如果有cid传入就显示关于cid的分页-->
 			<!--不为首页-->
+
 			<s:if test="pageBean.page != 1">
 				<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
 				<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
 			</s:if>
+			<span class="currentPage"><s:property value="pageBean.page "/></span>
 
-			<s:iterator var="i" begin="1" end="pageBean.totalPage">
-				<!--如果点击的不是当前页的话才能点-->
-				<s:if test="pageBean.page != #i">
-					<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
-				</s:if>
 
-				<s:else>
-					<span class="currentPage"><s:property value="#i"/></span>
-				</s:else>
-			</s:iterator>
+		<!--如果点击的不是当前页的话才能点-->
+			<%----%>
+			<%--<s:iterator var="i" begin="1" end="pageBean.totalPage">--%>
+
+				<%--<s:if test="pageBean.page != #i">--%>
+					<%--<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>--%>
+				<%--</s:if>--%>
+
+				<%--<s:else>--%>
+					<%--<span class="currentPage"><s:property value="#i"/></span>--%>
+				<%--</s:else>--%>
+			<%--</s:iterator>--%>
+		<%----%>
 			<!--不为最后一页，才可以点下一页和最后一页-->
 			<s:if test="pageBean.page != pageBean.totalPage">
 				<a class="nextPage" href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
@@ -107,14 +113,16 @@
 				<a href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
 			</s:if>
 
-			<s:iterator var="i" begin="1" end="pageBean.totalPage">
-				<s:if test="pageBean.page != #i">
-					<a href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
-				</s:if>
-				<s:else>
-					<span class="currentPage"><s:property value="#i"/></span>
-				</s:else>
-			</s:iterator>
+			<span class="currentPage"><s:property value="pageBean.page "/></span>
+
+			<%--<s:iterator var="i" begin="1" end="pageBean.totalPage">--%>
+				<%--<s:if test="pageBean.page != #i">--%>
+					<%--<a href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>--%>
+				<%--</s:if>--%>
+				<%--<s:else>--%>
+					<%--<span class="currentPage"><s:property value="#i"/></span>--%>
+				<%--</s:else>--%>
+			<%--</s:iterator>--%>
 
 			<s:if test="pageBean.page != pageBean.totalPage">
 				<a class="nextPage" href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>

@@ -60,7 +60,7 @@
 						<s:iterator var="orderItem" value="model.orderItems">
 						<tr>
 							<td width="60">
-								<img src="${ pageContext.request.contextPath }/<s:property value="#orderItem.product.image"/>"/>
+								<img src="<s:property value="#orderItem.product.image"/>"/>
 							</td>
 							<td>
 								<s:property value="#orderItem.product.pname"/>

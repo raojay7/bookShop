@@ -15,7 +15,7 @@
 
     <!-- 配置连接池: -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shop_sys"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/bookstore"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <property name="user" value="root"/>
         <property name="password" value="root"/>
