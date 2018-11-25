@@ -98,4 +98,27 @@ public class OrderDao extends HibernateDaoSupport{
     public void update(Order order) {
         getHibernateTemplate().update(order);
     }
+
+    public Integer findCountByState(String orderstate)
+    {
+
+        String hql="select count(*) from Order where state=?";
+        List<Long> list = getHibernateTemplate().find(hql,Integer.valueOf(orderstate));
+        if (list!=null&&list.size()>0){
+            return list.get(0).intValue();
+        }
+        return null;
+    }
+
+    public List<Order> findByPageAndState(int begin, int limit,String orderstate)
+    {
+        String hql="from Order where state=?";
+        List<Order> list=getHibernateTemplate().execute(new PageHibernateCallback<Order>
+            (hql,new Object[] { Integer.valueOf(orderstate) },begin,limit));
+
+        if (list!=null&&list.size()>0){
+            return list;
+        }
+        return null;
+    }
 }

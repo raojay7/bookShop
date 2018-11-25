@@ -87,8 +87,9 @@
 								</td>
 								<td><s:property value="#orderItem.product.pname" /></td>
 								<td><s:property value="#orderItem.product.shop_price" /></td>
-								<td class="quantity" width="60"><s:property
-										value="#orderItem.count" /></td>
+								<td class="quantity" width="60">
+									<s:property value="#orderItem.count" />
+								</td>
 								<td width="140"><span class="subtotal">￥<s:property
 											value="#orderItem.subtotal" />
 								</span></td>

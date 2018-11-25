@@ -17,7 +17,7 @@
 					xhr.onreadystatechange = function(){
 						if(xhr.readyState == 4){
 							if(xhr.status == 200){
-								
+
 								div1.innerHTML = xhr.responseText;
 							}
 						}
@@ -31,7 +31,7 @@
 					div1.innerHTML = "";
 					but.value="订单详情";
 				}
-				
+
 			}
 			function createXmlHttp(){
 				   var xmlHttp;
@@ -56,15 +56,39 @@
 	</HEAD>
 	<body>
 		<br>
+        <s:if test="orderstate!=-1">
+		<form action="adminOrder_selectOrder" method="post">
+			<s:select label="选择订单状态"
+					  headerKey="-1" headerValue="选择订单状态"
+					  list="#{'1':'未付款', '2':'以付款', '3':'等待确认收货', '4':'交易成功'}"
+					  name="orderstate"
+            />
+			<br>
+			<input type="submit" name="提交">
+		</form>
+        </s:if>
+        <s:else>
+        <form action="adminOrder_selectOrder" method="post">
+            <s:select label="选择订单状态"
+                      headerKey="-1" headerValue="选择订单状态"
+                      list="#{'1':'未付款', '2':'以付款', '3':'等待确认收货', '4':'交易成功'}"
+                      name="orderstate"
+                      value="-1"
+            />
+            <br>
+            <input type="submit" name="提交">
+        </form>
+        </s:else>
 		<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/user/list.jsp" method="post">
 			<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
 				<TBODY>
+
 					<tr>
 						<td class="ta_01" align="center" bgColor="#afd1f3">
 							<strong>订单列表</strong>
 						</TD>
 					</tr>
-					
+
 					<tr>
 						<td class="ta_01" align="center" bgColor="#f5fafe">
 							<table cellspacing="0" cellpadding="1" rules="all"
@@ -125,23 +149,35 @@
 												<s:if test="#o.state==4">
 													订单完成
 												</s:if>
-											
+
 											</td>
 											<td align="center" style="HEIGHT: 22px">
 												<input type="button" value="订单详情" id="but<s:property value="#o.oid"/>" onclick="showDetail(<s:property value="#o.oid"/>)"/>
 												<div id="div<s:property value="#o.oid"/>">
-													
+
 												</div>
 											</td>
-							
+
 										</tr>
-									</s:iterator>	
+									</s:iterator>
 							</table>
 						</td>
 					</tr>
 					<tr align="center">
 						<td colspan="7">
-							第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页 
+							<s:if test="orderstate!=-1">
+								第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页
+								<s:if test="pageBean.page != 1">
+									<a href="${ pageContext.request.contextPath }/adminOrder_selectOrder.action?page=1">首页</a>|
+									<a href="${ pageContext.request.contextPath }/adminOrder_selectOrder.action?page=<s:property value="pageBean.page-1"/>">上一页</a>|
+								</s:if>
+								<s:if test="pageBean.page != pageBean.totalPage">
+									<a href="${ pageContext.request.contextPath }/adminOrder_selectOrder.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
+									<a href="${ pageContext.request.contextPath }/adminOrder_selectOrder.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
+								</s:if>
+							</s:if>
+                            <s:else>
+							第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页
 							<s:if test="pageBean.page != 1">
 								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=1">首页</a>|
 								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=<s:property value="pageBean.page-1"/>">上一页</a>|
@@ -150,6 +186,7 @@
 								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
 								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
 							</s:if>
+                            </s:else>
 						</td>
 					</tr>
 				</TBODY>

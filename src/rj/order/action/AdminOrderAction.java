@@ -3,6 +3,7 @@ package rj.order.action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import rj.adminuser.service.AdminUserService;
 import rj.order.entity.Order;
 import rj.order.entity.OrderItem;
 import rj.order.service.OrderService;
@@ -39,6 +40,33 @@ public class AdminOrderAction extends ActionSupport implements ModelDriven<Order
         PageBean<Order> pageBean=orderService.findByPage(page);
         //设置
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
+        return "findAll";
+    }
+
+    private String orderstate;
+
+    public String getOrderstate()
+    {
+        return orderstate;
+    }
+
+    public void setOrderstate(String orderstate)
+    {
+        this.orderstate = orderstate;
+    }
+
+    public String selectOrder(){
+        //通过service方法得到pagebean
+        System.out.println("-----------------------");
+        System.out.println("进入selectOrder");
+        if (orderstate!=null)
+        {
+            if (!orderstate.equals("-1")){
+                //System.out.println(orderstate);
+                PageBean<Order> pageBean=orderService.selectOrder(orderstate,page);
+                ActionContext.getContext().getValueStack().set("pageBean",pageBean);
+            }
+        }
         return "findAll";
     }
 

@@ -117,4 +117,47 @@ public class OrderService {
     public void update(Order order) {
         orderDao.update(order);
     }
+
+    /**
+     * 条件查询
+     * @param orderstate
+     * @param page
+     * @return
+     */
+    public PageBean selectOrder(String orderstate,Integer page)
+    {
+        //创建pagebean对象
+        PageBean<Order> pageBean=new PageBean<>();
+
+        //设置当前页
+        pageBean.setPage(page);
+
+        //设置总数据数
+        Integer total;
+        //调用dao的查询总数据数的方法
+        total=orderDao.findCountByState(orderstate);
+        pageBean.setTotal(total);
+
+        //设置一页显示多少
+        int limit=5;
+        pageBean.setLimit(limit);
+
+        //设置总页数
+        int totalPage=0;
+        if(total % limit == 0){
+            totalPage = total / limit;
+        }else{
+            totalPage = total / limit + 1;
+        }
+        pageBean.setTotalPage(totalPage);
+
+        // 每页显示的数据集合:
+        // 从哪开始:
+        int begin=(page-1)*limit;
+        //根据一级分类查询到商品，并封装数据到pagebean的list中
+        List<Order> list = orderDao.findByPageAndState(begin,limit,orderstate);
+        pageBean.setList(list);
+        return pageBean;
+
+    }
 }
