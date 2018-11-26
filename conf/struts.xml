@@ -48,6 +48,7 @@
             <result name="loginSuccess" type="redirectAction">index</result>
             <!-- 退出用户跳转回首页 -->
             <result name="quit" type="redirectAction">index</result>
+            <result name="checkcodeFail">/WEB-INF/jsp/regist.jsp</result>
 
         </action>
 

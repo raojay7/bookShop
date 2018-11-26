@@ -94,7 +94,7 @@
 										<dt>还没有注册账号？</dt>
 										<dd>
 											立即注册即可体验在线购物！
-											<a href="./会员注册.htm">立即注册</a>
+											<a href="${ pageContext.request.contextPath }/user_registPage">立即注册</a>
 										</dd>
 									</dl>
 								</td>
@@ -150,7 +150,7 @@
 		</ul>
 	</div>
 	<div class="span24">
-		<div class="copyright">Copyright © 2005-2015 网上商城 版权所有</div>
+		<div class="copyright">Copyright © 2018-2020 网上商城 版权所有</div>
 	</div>
 </div>
 </body></html>
