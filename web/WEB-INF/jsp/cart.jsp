@@ -10,8 +10,11 @@
 
 <link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/css/cart.css" rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/changenum.css" rel="stylesheet" type="text/css"/>
+<script>
 
 
+</script>
 </head>
 <body>
 <div class="container header">
@@ -46,6 +49,7 @@
 						<th>操作</th>
 					</tr>
 						<s:iterator var="cartItem" value="#session.cart.cartItems">
+
 						<tr>
 							<td width="60">
 								<img src="<s:property value="#cartItem.product.image"/>">
@@ -56,9 +60,43 @@
 							<td>
 								￥<s:property value="#cartItem.product.shop_price"/>
 							</td>
-							<td class="quantity" width="60">
-								<s:property value="#cartItem.count"/>
+
+							<td style="width: 160px;">
+								<form action="<%--${ pageContext.request.contextPath }/cart_addCart--%>" method="post" >
+									<input type="hidden" name="pid" value="<s:property value="#cartItem.product.pid"/>"/>
+
+									<div class="changeNum" >
+										<%--<input class="dec" type="button" value="-" />--%>
+										<%--<strong>--%>
+											<%--<s:property value="#cartItem.count"/>--%>
+										<%--</strong>--%>
+										<span>请输入增减商品数量</span>
+										<input <%--type="hidden"--%> class="count"  id="count" name="count" value="0" maxlength="4" onpaste="return false;" type="text"/>
+										<span>购物车商品数量</span>
+										<input <%--type="hidden"--%> class="amount" value="${count}" type="text"/>
+
+										<%--<input class="inc" type="button" value="+" />--%>
+
+
+
+
+
+
+								<input type="submit" value="确定" onclick="setValue()"/>
+
+
+
+								</div>
+
+
+								</form>
+
 							</td>
+<%--							<td class="quantity" width="100">
+
+								<s:property value="#cartItem.count"/>
+
+							</td>--%>
 							<td width="140">
 								<span class="subtotal">￥<s:property value="#cartItem.subtotal"/></span>
 							</td>
@@ -66,6 +104,7 @@
 								<a href="${ pageContext.request.contextPath }/cart_removeCart.action?pid=<s:property value="#cartItem.product.pid"/>" class="delete">删除</a>
 							</td>
 						</tr>
+
 						</s:iterator>
 					</tbody>
 				</table>
@@ -146,4 +185,9 @@
 		<div class="copyright">Copyright © 2005-2015 网上商城 版权所有</div>
 	</div>
 </div>
-</body></html>
+</body>
+
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js" defer = "true"></script>
+
+</html>

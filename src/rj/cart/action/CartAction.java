@@ -16,8 +16,17 @@ public class CartAction {
     public void setPid(Integer pid) {
         this.pid = pid;
     }
+
+    public Integer getPid() {
+        return pid;
+    }
+
     //接收数量
    private Integer count;
+
+    public Integer getCount() {
+        return count;
+    }
 
     public void setCount(Integer count) {
         this.count = count;
@@ -32,6 +41,11 @@ public class CartAction {
 
     //将购物项添加到购物车的执行方法
     public String addCart(){
+        System.out.println("--------------------");
+        if (pid!=null)
+        System.out.println(pid+"id-----------");
+        System.out.println("----------------------");
+        System.out.println(count);
         //自己封装cartItem对象
         CartItem cartItem=new CartItem();
         //设置商品数量

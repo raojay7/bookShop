@@ -18,7 +18,7 @@
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/bookstore"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <property name="user" value="root"/>
-        <property name="password" value="root"/>
+        <property name="password" value="123456"/>
         <property name="initialPoolSize" value="3"/>
         <property name="maxPoolSize" value="6"/>
     </bean>
@@ -50,6 +50,7 @@
             </list>
         </property>
     </bean>
+
 
     <!-- 事务管理: -->
     <!-- 事务管理器 -->
@@ -175,4 +176,5 @@
     <bean id="categorySecondDao" class="rj.categorysecond.dao.CategorySecondDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
 </beans>
