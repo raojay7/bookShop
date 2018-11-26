@@ -71,7 +71,13 @@
 											<%--<s:property value="#cartItem.count"/>--%>
 										<%--</strong>--%>
 										<span>请输入增减商品数量</span>
-										<input <%--type="hidden"--%> class="count"  id="count" name="count" value="0" maxlength="4" onpaste="return false;" type="text"/>
+									<%--		//用户输入框只能输入整型
+
+										<input <%--type="hidden"--%> class="count"  id="count" name="count" value="0"
+																	 maxlength="4" onpaste="return false;" type="text"
+																	 onkeyup="value=value.replace(/[^-\d]/g,'')"
+
+																			 />
 										<span>购物车商品数量</span>
 										<input <%--type="hidden"--%> class="amount" value="${count}" type="text"/>
 
@@ -82,7 +88,7 @@
 
 
 
-								<input type="submit" value="确定" onclick="setValue()"/>
+								<input type="submit" value="确定" onclick="setValue(); restrictInput();"/>
 
 
 

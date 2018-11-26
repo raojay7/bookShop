@@ -1,11 +1,11 @@
 // 改变商品数量
-window.onload = function(){
-    var changeNumDivs = document.getElementsByClassName("changeNum");
-    for (var i = 0; i < changeNumDivs.length; i++) {
-        var changeNumDiv = changeNumDivs[i];
-        changeNum(changeNumDiv);
-    }
-}
+// window.onload = function(){
+//     var changeNumDivs = document.getElementsByClassName("changeNum");
+//     for (var i = 0; i < changeNumDivs.length; i++) {
+//         var changeNumDiv = changeNumDivs[i];
+//         changeNum(changeNumDiv);
+//     }
+// }
 
 /*
 value-商品数量
@@ -23,16 +23,19 @@ value-商品数量
 通过用户输入增减商品数量
 改变商品数量*/
 var setValue=function () {
+    console.log("setValue");
     var changeNumDivs = document.getElementsByClassName("changeNum");
     var changeNumDiv = changeNumDivs[0];
-    var  oStrong = changeNumDiv.getElementsByTagName('strong');
+    // var  oStrong = changeNumDiv.getElementsByTagName('strong');
     var oInputAmount = changeNumDiv.getElementsByClassName('amount');
     var oInputChange = changeNumDiv.getElementsByClassName('count');
-    var value = Number(oStrong[0].innerText);
+    // var value = Number(oStrong[0].innerText);
 
 
-    oInputAmount.count.value.innerHTML = value;
+    // oInputAmount.count.value.innerHTML = value;
     oInputChange.value = 0;
+    // restrictInput();
+
 }
 
 /*改变多件商品数量
@@ -41,10 +44,33 @@ var setValue=function () {
 
 
 // 判断小计不能为负值和零值
+/*如果不合法
+则把oInputChange[0].value设置为0*/
 // todo
+var restrictInput=function () {
+    console.log("restrictInput");
+    var changeNumDivs = document.getElementsByClassName("changeNum");
+    var changeNumDiv = changeNumDivs[0];
+    var  oStrong = changeNumDiv.getElementsByTagName('strong');
+    var oInputAmount = changeNumDiv.getElementsByClassName('amount');
+    var oInputChange = changeNumDiv.getElementsByClassName('count');
+    // var value = Number(oStrong[0].innerText);
+    var oldnum=Number(oInputAmount[0].value) ;
+    var change = Number(oInputChange[0].value);
+    var num = oldnum + change;
+    console.log("restrictInput num", num);
 
-//用户输入框只能输入整型
-//todo
+    if (num < 0) {
+        alert("请输入合法数量");
+        oInputChange[0].value = 0;
+    }
+
+    // oInputAmount.count.value.innerHTML = 1;
+    // oInputChange[0].value = 0;
+}
+
+
+
 // console.log("value", getValue());
 
 /*var changeNum=function (changeNumDiv) {
